@@ -6,4 +6,6 @@ package be.cegeka.battle.soldier;
 public interface Soldier {
 
     boolean attack(Soldier soldier);
+
+    int attackPower(Integer ... enemyAttackPower);
 }

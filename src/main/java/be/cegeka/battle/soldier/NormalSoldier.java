@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
-public class NormalSoldier {
+public class NormalSoldier implements Soldier {
 
     private static AtomicInteger idCounter = new AtomicInteger(1);
     private int id;
@@ -27,13 +27,16 @@ public class NormalSoldier {
         this.weapon = weapon;
     }
 
-    public int attackPower() {
+    @Override
+    public boolean attack(Soldier soldier) {
+        return attackPower() >= soldier.attackPower();
+    }
+
+    @Override
+    public int attackPower(Integer ... enemyAttackPower) {
         return weapon.getDamage();
     }
 
-    public boolean attack(NormalSoldier soldier) {
-        return attackPower() >= soldier.attackPower();
-    }
 
     public String getName() {
         return this.name;
