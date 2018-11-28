@@ -15,9 +15,9 @@ public class Battle {
             defendingArmy.getSoldiers().forEach(def -> {
                 boolean fightResult = atck.attack(def);
                 if (fightResult) {
-                    defendingArmy.removeDeadSOldier();
+                    defendingArmy.removeDeadSoldier();
                 } else {
-                    attackingArmy.removeDeadSOldier();
+                    attackingArmy.removeDeadSoldier();
                     return;
                 }
             });
