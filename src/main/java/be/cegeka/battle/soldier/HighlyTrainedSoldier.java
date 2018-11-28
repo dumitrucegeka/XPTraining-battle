@@ -7,20 +7,27 @@ import be.cegeka.battle.weapons.SpecializedWeapon;
  */
 public class HighlyTrainedSoldier implements Soldier {
 
-    private SpecializedWeapon weapon;
+    private final SpecializedWeapon weapon;
 
-    private boolean hasMagicPotion;
+    private final boolean hasMagicPotion;
 
+    public HighlyTrainedSoldier(SpecializedWeapon weapon, boolean hasMagicPotion) {
+        this.weapon = weapon;
+        this.hasMagicPotion = hasMagicPotion;
+    }
 
     @Override
     public boolean attack(Soldier soldier) {
-        int enemyBaseDamage = soldier.attackPower();
-        int myDamage = attackPower(enemyBaseDamage);
-        return true;
+        int enemyDamage = soldier.attackPower(weapon.getDamage());
+        int myDamage = attackPower(enemyDamage);
+        return myDamage >= enemyDamage;
     }
 
     @Override
     public int attackPower(Integer ... params) {
+        if(params.length == 0) {
+            return weapon.getDamage();
+        }
         Integer enemyAttackPower = params[0];
         boolean hasPotionEfect = hasMagicPotion && (enemyAttackPower +1)%2 == 1;
         return attackPower() + (hasPotionEfect ? 10 : 0);
