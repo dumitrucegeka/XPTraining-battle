@@ -1,7 +1,7 @@
 package be.cegeka.battle.soldier;
 
 import be.cegeka.battle.weapons.Weapon;
-import be.cegeka.battle.weapons.impl.BareFists;
+import be.cegeka.battle.weapons.impl.regular.BareFists;
 import org.apache.commons.lang3.Validate;
 
 import java.util.concurrent.atomic.AtomicInteger;
