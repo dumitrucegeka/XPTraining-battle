@@ -22,4 +22,8 @@ public class Army {
     public Soldier removeDeadSOldier() {
         return this.soldiers.remove();
     }
+
+    public int armySize() {
+        return soldiers.size();
+    }
 }
