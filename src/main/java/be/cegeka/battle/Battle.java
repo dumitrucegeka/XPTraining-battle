@@ -1,6 +1,13 @@
 package be.cegeka.battle;
 
-public class Battle {
+import be.cegeka.battle.observer.IObserver;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Battle implements ISubject {
+
+    private List<IObserver> observerList = new ArrayList<>();
 
     private final Army attackingArmy;
     private final Army defendingArmy;
@@ -18,11 +25,25 @@ public class Battle {
                     defendingArmy.removeDeadSoldier();
                 } else {
                     attackingArmy.removeDeadSoldier();
-                    return;
                 }
             });
         });
 
-        return (attackingArmy.armySize() >= defendingArmy.armySize()) ? attackingArmy : defendingArmy;
+        Army winningArmy = (attackingArmy.armySize() >= defendingArmy.armySize()) ? attackingArmy : defendingArmy;
+        notifyObserverOfWinningArmy(winningArmy);
+        return winningArmy;
+    }
+
+    private void notifyObserverOfWinningArmy(Army army) {
+        int remainingNumberOfSoldiers = army.armySize();
+        observerList
+                .forEach(observer -> {
+                    observer.update(headQuarter -> headQuarter.reportVictory(remainingNumberOfSoldiers));
+                });
+    }
+
+    @Override
+    public void subscribe(IObserver observer) {
+        observerList.add(observer);
     }
 }

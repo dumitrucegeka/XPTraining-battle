@@ -3,12 +3,13 @@ package be.cegeka.battle;
 import be.cegeka.battle.headquarters.IHeadQuarter;
 import be.cegeka.battle.observer.IObserver;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 public class HeadQuarterImplStub implements IHeadQuarter, IObserver {
 
-    public HeadQuarterImplStub(ISubject subject) {
-        subject.subscribe(this);
+    public HeadQuarterImplStub(List<ISubject> subjectList) {
+        subjectList.forEach(subject -> subject.subscribe(this));
     }
 
     @Override
@@ -23,7 +24,7 @@ public class HeadQuarterImplStub implements IHeadQuarter, IObserver {
 
     @Override
     public void reportVictory(int remainingNumberOfSoldiers) {
-        System.out.println(String.format("Soldier remained alive: %d", remainingNumberOfSoldiers));
+        System.out.println(String.format("Soldiers remained alive: %d", remainingNumberOfSoldiers));
     }
 
     @Override

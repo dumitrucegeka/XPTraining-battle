@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,7 +22,7 @@ public class HeadQuarterTest {
         System.setOut(new PrintStream(out));
 
         army = new Army();
-        headQuarterImplStub = new HeadQuarterImplStub(army);
+        headQuarterImplStub = new HeadQuarterImplStub(Collections.singletonList(army));
 
         soldierName = "Mitica";
         Soldier soldier = new Soldier(soldierName);
@@ -43,6 +44,6 @@ public class HeadQuarterTest {
     public void givenHQVictory_ThenPrintNumberOfSoldiers() {
         int remainingNumberOfSoldiers = 5;
         headQuarterImplStub.reportVictory(remainingNumberOfSoldiers);
-        assertThat(out.toString()).contains(String.format("Soldier remained alive: %d", remainingNumberOfSoldiers));
+        assertThat(out.toString()).contains(String.format("Soldiers remained alive: %d", remainingNumberOfSoldiers));
     }
 }
