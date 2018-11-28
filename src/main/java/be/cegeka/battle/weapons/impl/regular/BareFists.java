@@ -1,4 +1,4 @@
-package be.cegeka.battle.weapons.impl;
+package be.cegeka.battle.weapons.impl.regular;
 
 import be.cegeka.battle.weapons.Weapon;
 
