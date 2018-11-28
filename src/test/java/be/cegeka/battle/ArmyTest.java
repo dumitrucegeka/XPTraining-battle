@@ -23,7 +23,7 @@ public class ArmyTest {
 
     @Test
     public void givenDeadSoldierClearArmy() {
-        Soldier soldier = army.removeDeadSOldier();
+        Soldier soldier = army.removeDeadSoldier();
         assertThat(army.getSoldiers().size()).isEqualTo(0);
         assertThat(soldier.getName()).isEqualTo("Ion");
     }
