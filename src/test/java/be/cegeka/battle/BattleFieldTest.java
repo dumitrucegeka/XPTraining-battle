@@ -2,8 +2,8 @@ package be.cegeka.battle;
 
 
 import be.cegeka.battle.soldier.NormalSoldier;
-import be.cegeka.battle.weapons.impl.Axe;
-import be.cegeka.battle.weapons.impl.Spear;
+import be.cegeka.battle.weapons.impl.regular.Axe;
+import be.cegeka.battle.weapons.impl.regular.Spear;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

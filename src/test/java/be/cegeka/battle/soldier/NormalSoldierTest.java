@@ -1,8 +1,8 @@
 package be.cegeka.battle.soldier;
 
 import be.cegeka.battle.soldier.NormalSoldier;
-import be.cegeka.battle.weapons.impl.Axe;
-import be.cegeka.battle.weapons.impl.BareFists;
+import be.cegeka.battle.weapons.impl.regular.Axe;
+import be.cegeka.battle.weapons.impl.regular.BareFists;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

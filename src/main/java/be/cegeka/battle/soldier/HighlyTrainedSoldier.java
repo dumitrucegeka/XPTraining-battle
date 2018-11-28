@@ -1,11 +1,13 @@
 package be.cegeka.battle.soldier;
 
+import be.cegeka.battle.weapons.SpecializedWeapon;
+
 /**
  * Created by dumitruc on 28.11.2018.
  */
 public class HighlyTrainedSoldier implements Soldier {
 
-    private HighlySpecializedWeapon weapon;
+    private SpecializedWeapon weapon;
 
     @Override
     public boolean attack(Soldier soldier) {
