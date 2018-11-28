@@ -14,12 +14,12 @@ public class HeadQuarterImplStub implements IHeadQuarter, IObserver {
 
     @Override
     public void reportEnlistment(String soldierName) {
-        System.out.println(String.format("Soldier enlisted: %s", soldierName));
+        System.out.println(String.format("NormalSoldier enlisted: %s", soldierName));
     }
 
     @Override
     public void reportCasualty(int soldierId) {
-        System.out.println(String.format("Soldier died: %d", soldierId));
+        System.out.println(String.format("NormalSoldier died: %d", soldierId));
     }
 
     @Override

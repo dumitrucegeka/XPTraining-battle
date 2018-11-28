@@ -1,5 +1,6 @@
 package be.cegeka.battle;
 
+import be.cegeka.battle.soldier.NormalSoldier;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,19 +26,19 @@ public class HeadQuarterTest {
         headQuarterImplStub = new HeadQuarterImplStub(Collections.singletonList(army));
 
         soldierName = "Mitica";
-        Soldier soldier = new Soldier(soldierName);
+        NormalSoldier soldier = new NormalSoldier(soldierName);
         army.enroll(soldier);
     }
 
     @Test
     public void givenEnrolledSoldier_ThenPrintSoldierName() {
-        assertThat(out.toString()).contains(String.format("Soldier enlisted: %s%n", soldierName));
+        assertThat(out.toString()).contains(String.format("NormalSoldier enlisted: %s%n", soldierName));
     }
 
     @Test
     public void givenCasualtySoldier_ThenPrintSoldierId() {
-        Soldier casualty = army.removeDeadSoldier();
-        assertThat(out.toString()).contains(String.format("Soldier died: %d", casualty.getId()));
+        NormalSoldier casualty = army.removeDeadSoldier();
+        assertThat(out.toString()).contains(String.format("NormalSoldier died: %d", casualty.getId()));
     }
 
     @Test

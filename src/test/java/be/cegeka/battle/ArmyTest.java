@@ -1,5 +1,6 @@
 package be.cegeka.battle;
 
+import be.cegeka.battle.soldier.NormalSoldier;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +11,7 @@ public class ArmyTest {
 
     @Before
     public void enrollSoldier() {
-        Soldier soldier = new Soldier("Ion");
+        NormalSoldier soldier = new NormalSoldier("Ion");
         army = new Army();
         army.enroll(soldier);
 
@@ -23,7 +24,7 @@ public class ArmyTest {
 
     @Test
     public void givenDeadSoldierClearArmy() {
-        Soldier soldier = army.removeDeadSoldier();
+        NormalSoldier soldier = army.removeDeadSoldier();
         assertThat(army.getSoldiers().size()).isEqualTo(0);
         assertThat(soldier.getName()).isEqualTo("Ion");
     }

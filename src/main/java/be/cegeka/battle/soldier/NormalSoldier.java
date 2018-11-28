@@ -1,4 +1,4 @@
-package be.cegeka.battle;
+package be.cegeka.battle.soldier;
 
 import be.cegeka.battle.weapons.Weapon;
 import be.cegeka.battle.weapons.impl.regular.BareFists;
@@ -8,21 +8,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
-public class Soldier {
+public class NormalSoldier {
 
     private static AtomicInteger idCounter = new AtomicInteger(1);
     private int id;
     private final String name;
     private Weapon weapon;
 
-    public Soldier(String name) {
+    public NormalSoldier(String name) {
         Validate.isTrue(isNotBlank(name));
         id = idCounter.getAndIncrement();
         this.name =  name;
         this.weapon = new BareFists();
     }
 
-    public Soldier(String name, Weapon weapon) {
+    public NormalSoldier(String name, Weapon weapon) {
         this.name = name;
         this.weapon = weapon;
     }
@@ -31,11 +31,11 @@ public class Soldier {
         return weapon.getDamage();
     }
 
-    public boolean attack(Soldier soldier) {
+    public boolean attack(NormalSoldier soldier) {
         return attackPower() >= soldier.attackPower();
     }
 
-    String getName() {
+    public String getName() {
         return this.name;
     }
 
