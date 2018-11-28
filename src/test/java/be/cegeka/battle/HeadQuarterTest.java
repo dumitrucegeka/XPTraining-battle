@@ -35,8 +35,8 @@ public class HeadQuarterTest {
 
     @Test
     public void givenCasualtySoldier_ThenPrintSoldierId() {
-        army.removeDeadSoldier();
-        assertThat(out.toString()).contains(String.format("Soldier died: %d", 1));
+        Soldier casualty = army.removeDeadSoldier();
+        assertThat(out.toString()).contains(String.format("Soldier died: %d", casualty.getId()));
     }
 
     @Test
