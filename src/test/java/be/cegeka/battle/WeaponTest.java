@@ -8,7 +8,6 @@ import be.cegeka.battle.weapons.impl.Spear;
 import be.cegeka.battle.weapons.impl.Sword;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertTrue;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WeaponTest {
