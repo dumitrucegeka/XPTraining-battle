@@ -38,4 +38,11 @@ public class SoldierTest {
         assertThat(soldier1.attack(soldier2)).isTrue();
     }
 
+    @Test
+    public void givenSoldier_whenNoSpecificWeapon_ThenCheckIfHasBareFists() {
+        Soldier soldier = new Soldier("soldier");
+
+        assertThat(soldier.attackPower()).isEqualTo(new BareFists().getDamage());
+    }
+
 }
